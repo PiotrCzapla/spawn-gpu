@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "jarvislabs.html",
+    "href": "jarvislabs.html",
+    "title": "Jarvislabs",
+    "section": "",
+    "text": "from jlclient.jarvisclient import Instance\n\ninst = Instance(gpu_type='v100', name=\"my-test\", num_gpus=1, status='paused', url='https://.../?token=...', ssh_str='ssh -p 1234 root@test.jarvislabs.com', hdd=0, framework_id='fastai', machine_id=1, tboard_url='https://...')\n_jl_print_inst(inst)\n\nmy-test:  v100 (1) - paused\n    # https://.../?token=...\n    # ('test.jarvislabs.com', 1234)\n\n\n\nprint(_jl_make_ssh_config(inst, 0))\n\n\n    Host my-test\n        Port 1234\n        HostKeyAlias my-test\n        ForwardAgent yes\n        Hostname test.jarvislabs.com\n        User root\n    \n\n\n\nsource\n\nJarvisClient\n\n JarvisClient (ssh_d=None)\n\nInitialize self. See help(type(self)) for accurate signature.\n\nos.environ['JARVIS_TOKEN'] = os.environ.get('JARVIS_TOKEN_TEST', os.environ.get('JARVIS_TOKEN')) \nos.environ['JARVIS_USER_ID'] = os.environ.get('JARVIS_USER_ID_TEST', os.environ.get('JARVIS_USER_ID'))\n\ndef tst_client(): return JarvisClient(ssh_d=Path('/tmp/tst.ssh/'))\n\n\n{k:inst.name for k, inst in tst_client()._instances()[0].items()}\n\n{'0': 'test'}\n\n\n\n{k:inst.name for k, inst in tst_client()._instances()[1].items()}\n\n{'test': 'test'}\n\n\n\nprint_safe(tst_client()._instances())\n\n({'0': {'gpu_type': 'CPU', 'num_gpus': 1, 'hdd': '20', 'framework_id': '0', 'url': 'https://notebooksa.jarvislabs.ai/...', 'machine_id': 62290, 'tboard_url': ['https://notebooksa.jarvislabs.ai/...'], 'ssh_str': '', 'status': 'Paused', 'name': 'test', 'arguments': '', 'is_reserved': 1, 'duration': 'hour'}}, {'test': {'gpu_type': 'CPU', 'num_gpus': 1, 'hdd': '20', 'framework_id': '0', 'url': 'https://notebooksa.jarvislabs.ai/...', 'machine_id': 62290, 'tboard_url': ['https://notebooksa.jarvislabs.ai/...'], 'ssh_str': '', 'status': 'Paused', 'name': 'test', 'arguments': '', 'is_reserved': 1, 'duration': 'hour'}})\n\n\n\nsource\n\n\nJarvisClient.list\n\n JarvisClient.list ()\n\n\ntst_client().list()\n\n0, test:  CPU (1) - Paused\n    # https://notebooksa.jarvislabs.ai/0961/lab?token=Oq4r9J2lU_-I6RUgXj7h38hh7OJcS5tNT-kHUbwpzqcdKCkk5nBILg-C2MzacXnK\n    # No SSH info, did you provide ssh key?\n\n\n\njl = tst_client()\n! rm -rf /tmp/tst.ssh\njl._add_config_d()\njl._add_config_d()\n! echo Content of the .ssh/config\n! cat {jl.ssh_config}\n\nCreating /tmp/tst.ssh/config for you\nContent of the .ssh/config\nInclude ~/.ssh/config.d/*\n\n\n\njl = tst_client()\n! mkdir -p /tmp/tst.ssh\n! rm /tmp/tst.ssh/config\njl._add_config_d()\njl._add_config_d()\n! echo Content of the .ssh/config\n! cat {jl.ssh_config}\n\nCreating /tmp/tst.ssh/config for you\nContent of the .ssh/config\nInclude ~/.ssh/config.d/*\n\n\n\njl = tst_client()\n! mkdir -p /tmp/tst.ssh\n! echo '# some lines\\n# some more lines' > /tmp/tst.ssh/config\njl._add_config_d()\n! echo Content of the .ssh/config\n! cat {jl.ssh_config}\n\nAdding the following required include to your ~/.ssh/config:\nInclude ~/.ssh/config.d/*\nContent of the .ssh/config\nInclude ~/.ssh/config.d/*\n# some lines\n# some more lines\n\n\n\nsource\n\n\nJarvisClient.setup\n\n JarvisClient.setup (instances=None)\n\n\n!rm -rf /tmp/tst.ssh/\ntst_client().setup()\n!ls /tmp/tst.ssh/config.d\n!cat /tmp/tst.ssh/config.d/jarvis.config\n\njarvis.config\n# no ssh info available\n\n\n\nsource\n\n\nJarvisClient.resume\n\n JarvisClient.resume (idx=0)\n\n\nprint_safe(tst_client().resume(0))\n\ntest:  CPU (1) - Running\n    # https://notebooksa.jarvislabs.ai/0961/lab?token=Oq4r9J2lU_-I6RUgXj7h38hh7OJcS5tNT-kHUbwpzqcdKCkk5nBILg-C2MzacXnK\n    # No SSH info, did you provide ssh key?\nNone\n\n\n\nsource\n\n\nJarvisClient.pause\n\n JarvisClient.pause (idx=0)\n\n\ntst_client().pause()\n\ntest:  CPU (1) - Paused\n    # https://notebooksa.jarvislabs.ai/0961/lab?token=Oq4r9J2lU_-I6RUgXj7h38hh7OJcS5tNT-kHUbwpzqcdKCkk5nBILg-C2MzacXnK\n    # No SSH info, did you provide ssh key?"
+  },
+  {
+    "objectID": "00_main.html",
+    "href": "00_main.html",
+    "title": "spawn-gpu",
+    "section": "",
+    "text": "main\n\n main ()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "spawn-gpu",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "spawn-gpu",
+    "section": "Install",
+    "text": "Install\npip install spawn_gpu\nThen add the environment variables and an alias to your zsh\n    export JARVIS_TOKEN=$(gopass path/to/your/token)\n    export JARVIS_USER_ID=your_user_id\nFor conda users:\n    alias spawn-gpu=\"conda run -n spawn-gpu python -m spawn_gpu\""
+  }
+]
