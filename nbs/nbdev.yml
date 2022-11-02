@@ -4,6 +4,6 @@ project:
 website:
   title: "spawn-gpu"
   site-url: "https://PiotrCzapla.github.io/spawn-gpu"
-  description: "Helps starting & stopping gpu machines and adds entries to .ssh/config"
+  description: "Helps starting & stopping gpu machines and adds entrees to .ssh/config"
   repo-branch: main
   repo-url: "https://github.com/PiotrCzapla/spawn-gpu"
