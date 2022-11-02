@@ -7,3 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps: [uses: fastai/workflows/quarto-ghp@master]
+    env:
+      JARVIS_USER_ID_TEST: ${{ secrets.JARVIS_USER_ID_TEST }}
+      JARVIS_TOKEN_TEST: ${{ secrets.JARVIS_TOKEN_TEST }}
