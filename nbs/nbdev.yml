@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "spawn-gpu"
+  site-url: "https://PiotrCzapla.github.io/spawn-gpu"
+  description: "Helps starting & stopping gpu machines and adds entries to .ssh/config"
+  repo-branch: main
+  repo-url: "https://github.com/PiotrCzapla/spawn-gpu"

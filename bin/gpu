@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "$0"
-LOCAL=$(dirname "$0")/..
-export JARVIS_TOKEN="op://_api/jarvislab-api/password"
-export JARVIS_USER_ID="op://_api/jarvislab-api/username"
-op run python "$LOCAL/src/gpu.py" "$@"
