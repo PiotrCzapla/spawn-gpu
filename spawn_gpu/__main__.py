@@ -12,5 +12,5 @@ def main():
     fire.Fire({'jl': jarvislabs.JarvisClient()})
 
 # %% ../nbs/00_main.ipynb 4
-if __main__ == '__name__':
+if __name__ == '__main__':
     main()
